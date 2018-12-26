@@ -10,7 +10,7 @@ ANSWERS = [
 	"1234"
 ]
 
-Telegram::Bot::Client.run(token) do |bot|
+Telegram::Bot::Client.run(TOKEN) do |bot|
 	bot.listen do |message|
 		case message.text
 		when '/start', '/start start'
