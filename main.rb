@@ -17,7 +17,7 @@ a = Time.now
 puts(a.hour.to_s + ":" + a.min.to_s)
 now = a.day.to_s + "." + a.month.to_s + "." + a.year.to_s
 
-loop do
+#loop do
   begin
     Telegram::Bot::Client.run(TOKEN) do |bot|
       bot.listen do |message|
@@ -58,5 +58,5 @@ loop do
       end
     end
   end
-end
+#end
 
