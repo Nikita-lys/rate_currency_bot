@@ -28,37 +28,35 @@ loop do
           when '/start', '/start start'
             bot.api.send_message(chat_id: message.chat.id, text: "Здравствуй, #{message.from.first_name}" +
                 ". Я - бот, который выводит курс валют. \nДостаточно написать мне \"Курс\".", reply_markup: answers)
-          else
-            case message.text
-            when 'Курс'
-              bot.api.send_message(
-                  chat_id: message.chat.id,
-                  text: "Текущий курс на " + now + "\nДоллар США: \t\t\t\t\t\t\t\t\t\t\t" + usd.to_s.split('"')[1] +
+
+          when 'Курс'
+            bot.api.send_message(
+                chat_id: message.chat.id,
+                text: "Текущий курс на " + now + "\nДоллар США: \t\t\t\t\t\t\t\t\t\t\t" + usd.to_s.split('"')[1] +
                       "\nЕвро: \t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t" + eur.to_s.split('"')[1] +
                       "\nУкраинская гривна: " + grivna.to_s.split('"')[1] +
                       "\nФунт стерлингов: \t\t\t\t" + pounds.to_s.split('"')[1] +
                       "\nЯпонская иена: \t\t\t\t\t\t\t\t" + yen.to_s.split('"')[1] +
                       "\nКазахский тенге: \t\t\t\t\t" + teng.to_s.split('"')[1] +
                       "\nКитайский юань: \t\t\t\t\t" + yuan.to_s.split('"')[1],
-                  reply_markup: answers)
-            when 'Доллар'
-              bot.api.send_message(
-                  chat_id: message.chat.id,
-                  text: "Курс на " + now + "\nДоллар: \t" + usd.to_s.split('"')[1],
-                  reply_markup: answers)
-            when 'Евро'
-              bot.api.send_message(
-                  chat_id: message.chat.id,
-                  text: "Курс на " + now + "\nЕвро: \t\t\t\t\t\t" + eur.to_s.split('"')[1], # +"\n
-                  reply_markup: answers)
-            end
+                reply_markup: answers)
+          when 'Доллар'
+            bot.api.send_message(
+                chat_id: message.chat.id,
+                text: "Курс на " + now + "\nДоллар: \t" + usd.to_s.split('"')[1],
+                reply_markup: answers)
+          when 'Евро'
+            bot.api.send_message(
+                chat_id: message.chat.id,
+                text: "Курс на " + now + "\nЕвро: \t\t\t\t\t\t" + eur.to_s.split('"')[1],
+                reply_markup: answers)
           end
-        rescue 
-          puts "RESCUE PRCSNG"
         end
+          # rescue
+          #   puts "RESCUE PRCSNG"
+          # end
       end
-    rescue
-      puts "RESCUE PRCSNG"
     end
   end
 end
+
