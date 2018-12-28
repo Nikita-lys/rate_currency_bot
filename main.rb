@@ -5,22 +5,24 @@ require 'date'
 
 TOKEN = '771018612:AAE6YylyBVHFPP3OxVU6HsgFpVrmyLvw3sg'
 
-usd = Nokogiri::HTML(open('http://bhom.ru/currencies/usd/?startdate=alltime')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-eur = Nokogiri::HTML(open('http://bhom.ru/currencies/eur/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-grivna = Nokogiri::HTML(open('http://bhom.ru/currencies/uah/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-pounds = Nokogiri::HTML(open('http://bhom.ru/currencies/gbp/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-yen = Nokogiri::HTML(open('http://bhom.ru/currencies/jpy/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-teng = Nokogiri::HTML(open('http://bhom.ru/currencies/kzt/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-yuan = Nokogiri::HTML(open('http://bhom.ru/currencies/cny/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
-
-a = Time.now
-puts(a.hour.to_s + ":" + a.min.to_s)
-now = a.day.to_s + "." + a.month.to_s + "." + a.year.to_s
-
 #loop do
   begin
     Telegram::Bot::Client.run(TOKEN) do |bot|
+
       bot.listen do |message|
+        usd = Nokogiri::HTML(open('http://bhom.ru/currencies/usd/?startdate=alltime')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        eur = Nokogiri::HTML(open('http://bhom.ru/currencies/eur/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        grivna = Nokogiri::HTML(open('http://bhom.ru/currencies/uah/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        pounds = Nokogiri::HTML(open('http://bhom.ru/currencies/gbp/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        yen = Nokogiri::HTML(open('http://bhom.ru/currencies/jpy/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        teng = Nokogiri::HTML(open('http://bhom.ru/currencies/kzt/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+        yuan = Nokogiri::HTML(open('http://bhom.ru/currencies/cny/')).xpath('//span[@id="currency-today"]').map {|x| x.text()}
+
+        a = Time.now
+        puts(a.hour.to_s + ":" + a.min.to_s)
+        now = a.day.to_s + "." + a.month.to_s + "." + a.year.to_s
+
+
         Thread.start(message) do |message|
           answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: ['Курс', 'Доллар', 'Евро'], one_time_keyboard: true)
 
