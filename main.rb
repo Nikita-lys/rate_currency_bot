@@ -51,6 +51,7 @@ TOKEN = '771018612:AAE6YylyBVHFPP3OxVU6HsgFpVrmyLvw3sg'
                 chat_id: message.chat.id,
                 text: "Курс на " + now + "\nЕвро: \t\t\t\t\t\t" + eur.to_s.split('"')[1],
                 reply_markup: answers)
+            
           end
         end
       end
