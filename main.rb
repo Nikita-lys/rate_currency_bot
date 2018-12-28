@@ -54,9 +54,6 @@ TOKEN = '771018612:AAE6YylyBVHFPP3OxVU6HsgFpVrmyLvw3sg'
                 reply_markup: answers)
           end
         end
-          # rescue
-          #   puts "RESCUE PRCSNG"
-          # end
       end
     end
   end
