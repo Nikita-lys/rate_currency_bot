@@ -22,7 +22,6 @@ TOKEN = '771018612:AAE6YylyBVHFPP3OxVU6HsgFpVrmyLvw3sg'
         puts(a.hour.to_s + ":" + a.min.to_s)
         now = a.day.to_s + "." + a.month.to_s + "." + a.year.to_s
 
-
         Thread.start(message) do |message|
           answers = Telegram::Bot::Types::ReplyKeyboardMarkup.new(keyboard: ['Курс', 'Доллар', 'Евро'], one_time_keyboard: true)
 
