@@ -3,7 +3,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'date'
 
-TOKEN = '771018612:AAE6YylyBVHFPP3OxVU6HsgFpVrmyLvw3sg'
+TOKEN = ''
 
 #loop do
   begin
